@@ -1,0 +1,42 @@
+/* src/pages/SamplePage.css */
+
+.sample-page-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background-color: #222;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #333;
+}
+
+.card-title {
+  margin: 0 0 10px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.card-content {
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.card-date {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: right;
+  font-style: italic;
+}
