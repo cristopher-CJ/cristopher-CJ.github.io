@@ -11,16 +11,16 @@ const App: React.FC = () => {
         <div className="navbar-content">
           <div className="navbar-title">Mi Mini Web</div>
           <nav className="navbar-links">
-            <Link to="/Inicio">Inicio</Link>
-            <Link to="/sample">Sample Page</Link>
+            <Link to="">Inicio</Link>
+            <Link to="/Sample_Page">Sample Page</Link>
           </nav>
         </div>
       </header>
 
       <main className="main-content">
         <Routes>
-          <Route path="/Inicio" element={<Inicio />} />
-          <Route path="/sample" element={<SamplePage />} />
+          <Route path="" element={<Inicio />} />
+          <Route path="/Sample_Page" element={<SamplePage />} />
         </Routes>
       </main>
     </div>
