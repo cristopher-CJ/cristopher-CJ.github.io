@@ -1,0 +1,14 @@
+/* src/components/BottomBar.css */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}

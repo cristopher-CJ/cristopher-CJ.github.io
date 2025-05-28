@@ -16,5 +16,24 @@
     "title": "Tercer post",
     "content": "Y uno más para llenar un poco la página.",
     "date": "2025-05-26"
+  },
+  {
+    "id": 4,
+    "title": "Cuarto post",
+    "content": "Y uno más para llenar un poco la página.",
+    "date": "2025-05-26"
+  },
+  {
+    "id": 5,
+    "title": "Quinto post",
+    "content": "Y uno más para llenar un poco la página.",
+    "date": "2025-05-26"
+  },
+  {
+    "id": 6,
+    "title": "Sexto post",
+    "content": "Y uno más para llenar un poco la página.",
+    "date": "2025-05-26"
   }
+  
 ]
