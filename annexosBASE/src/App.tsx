@@ -1,11 +1,12 @@
-// App.tsx
-import { useState } from 'react'
+// src/App.tsx
+import React, { useState } from 'react'
 import { Routes, Route, NavLink } from 'react-router-dom'
 import Inicio from './pages/Inicio'
 import SamplePage from './pages/SamplePage'
+import Clock from './componentes/Clock.tsx'   // Importa el Clock
 import './App.css'
 
-const App = () => {
+const App: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   const drawerWidth = isDrawerOpen ? '200px' : '60px'
@@ -24,6 +25,9 @@ const App = () => {
           </button>
           <div className="navbar-title">Mi Mini Web</div>
         </div>
+
+        {/* Reloj a la derecha */}
+        <Clock />
       </header>
 
       {/* Drawer lateral */}
