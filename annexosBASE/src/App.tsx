@@ -11,7 +11,7 @@ const App: React.FC = () => {
         <div className="navbar-content">
           <div className="navbar-title">Mi Mini Web</div>
           <nav className="navbar-links">
-            <Link to="/">Inicio</Link>
+            <Link to="/Inicio">Inicio</Link>
             <Link to="/sample">Sample Page</Link>
           </nav>
         </div>
@@ -19,7 +19,7 @@ const App: React.FC = () => {
 
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<Inicio />} />
+          <Route path="/Inicio" element={<Inicio />} />
           <Route path="/sample" element={<SamplePage />} />
         </Routes>
       </main>
