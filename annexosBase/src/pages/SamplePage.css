@@ -1,12 +1,12 @@
 /* src/pages/SamplePage.css */
 
-.sample-page-container {
+.sample-content {
+  padding-bottom: 60px; /* espacio para barra inferior */
   max-width: 600px;
-  margin: 20px auto;
-  padding: 0 10px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .card {

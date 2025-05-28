@@ -12,3 +12,23 @@
   justify-content: center;
   z-index: 1001;
 }
+
+.add-button {
+  cursor: pointer;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #444;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #666;
+}

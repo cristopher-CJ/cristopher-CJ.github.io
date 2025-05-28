@@ -2,10 +2,16 @@
 import React from 'react'
 import './BottomBar.css'
 
-const BottomBar: React.FC = () => {
+interface BottomBarProps {
+  onAddCard: () => void
+}
+
+const BottomBar: React.FC<BottomBarProps> = ({ onAddCard }) => {
   return (
     <footer className="bottom-bar">
-      {/* Aquí puedes añadir contenido más adelante */}
+      <div className="add-button" onClick={onAddCard} title="Añadir nueva card">
+        +
+      </div>
     </footer>
   )
 }
