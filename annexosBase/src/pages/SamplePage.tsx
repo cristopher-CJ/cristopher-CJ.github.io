@@ -1,8 +1,7 @@
-// SamplePage.tsx
 import React, { useEffect, useState } from 'react'
 import EditCardForm from '../componentes/EditCardForm'
+import BottomBar from '../componentes/BottomBar'
 import LoadingSpinner from '../componentes/LoadingSpinner'
-import './SamplePage.css'
 
 interface Card {
   id: number
@@ -17,71 +16,82 @@ const SamplePage: React.FC = () => {
   const [editingCard, setEditingCard] = useState<Card | null>(null)
 
   useEffect(() => {
-    const loadCards = async () => {
-      setLoading(true)
-      try {
-        await new Promise((res) => setTimeout(res, 3000)) // 3 segundos delay
-        const res = await fetch('/cards.json')
-        if (!res.ok) throw new Error('Error fetching cards')
-        const data = await res.json()
-        setCards(data)
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setLoading(false)
+    setLoading(true)
+    setTimeout(() => {
+      // Simulamos carga desde localStorage o local file
+      const storedCards = localStorage.getItem('cards')
+      if (storedCards) {
+        setCards(JSON.parse(storedCards))
+      } else {
+        setCards([])
       }
-    }
-    loadCards()
+      setLoading(false)
+    }, 1000)
   }, [])
 
+  const saveCards = (updatedCards: Card[]) => {
+    setCards(updatedCards)
+    localStorage.setItem('cards', JSON.stringify(updatedCards))
+  }
+
+  const handleAddCard = () => {
+    const newCard: Card = {
+      id: Date.now(),
+      title: `N post`,
+      content: 'Este es el contenido del primer post de la Sample Page.',
+      date: new Date().toISOString().slice(0, 10),
+    }
+    const updatedCards = [...cards, newCard]
+    saveCards(updatedCards)
+  }
+
+  const handleEditClick = (card: Card) => {
+    setEditingCard(card)
+  }
+
   const handleSaveEdit = (id: number, newTitle: string, newContent: string, newDate: string) => {
-    setCards((prev) =>
-      prev.map((card) =>
-        card.id === id ? { ...card, title: newTitle, content: newContent, date: newDate } : card
-      )
+    const updatedCards = cards.map((card) =>
+      card.id === id ? { ...card, title: newTitle, content: newContent, date: newDate } : card
     )
+    saveCards(updatedCards)
+    setEditingCard(null)
+  }
+
+  const handleCancelEdit = () => {
     setEditingCard(null)
   }
 
   return (
-    <div className="sample-page">
-      {loading && (
-        <div className="loading-overlay">
-          <LoadingSpinner />
-        </div>
-      )}
+    <>
+      {loading && <LoadingSpinner />}
 
-      {!loading && (
-        <div className="cards-container">
-          {cards.map((card) => (
-            <div
-              key={card.id}
-              className="card"
-              onClick={() => setEditingCard(card)}
-              tabIndex={0}
-              role="button"
-              aria-label={`Editar ${card.title}`}
-            >
-              <h3>{card.title}</h3>
-              <p>{card.content}</p>
-              <small>{card.date}</small>
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="cards-container">
+        {cards.map((card) => (
+          <div key={card.id} className="card">
+            <h3>{card.title}</h3>
+            <p>{card.content}</p>
+            <small>{card.date}</small>
+            <button className="edit-button" onClick={() => handleEditClick(card)}>
+              Editar
+            </button>
+          </div>
+        ))}
+      </div>
 
       {editingCard && (
-        <div className="modal-backdrop" onClick={() => setEditingCard(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-overlay">
+          <div className="modal-content">
             <EditCardForm
               card={editingCard}
               onSave={handleSaveEdit}
-              onCancel={() => setEditingCard(null)}
+              onCancel={handleCancelEdit}
             />
           </div>
         </div>
       )}
-    </div>
+
+      <BottomBar onAdd={handleAddCard} />
+    </>
   )
 }
 
