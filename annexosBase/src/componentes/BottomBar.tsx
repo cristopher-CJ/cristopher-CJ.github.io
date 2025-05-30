@@ -1,18 +1,17 @@
-// src/components/BottomBar.tsx
 import React from 'react'
 import './BottomBar.css'
 
 interface BottomBarProps {
-  onAddCard: () => void
+  onAdd: () => void
 }
 
-const BottomBar: React.FC<BottomBarProps> = ({ onAddCard }) => {
+const BottomBar: React.FC<BottomBarProps> = ({ onAdd }) => {
   return (
-    <footer className="bottom-bar">
-      <div className="add-button" onClick={onAddCard} title="Añadir nueva card">
-        +
-      </div>
-    </footer>
+    <div className="bottom-bar">
+      <button className="add-button" onClick={onAdd}>
+        ＋
+      </button>
+    </div>
   )
 }
 
