@@ -1,0 +1,10 @@
+.gif-test-page {
+  padding: 20px;
+  text-align: center;
+}
+
+.gif-test-page img {
+  max-width: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}

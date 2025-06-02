@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Routes, Route, NavLink } from 'react-router-dom'
 import Inicio from './pages/Inicio'
 import SamplePage from './pages/SamplePage'
+import GifTestPage from './pages/GifTestPage'
 import Clock from './componentes/Clock.tsx'   // Importa el Clock
 import './App.css'
 
@@ -58,6 +59,17 @@ const App: React.FC = () => {
               {isDrawerOpen && <span className="drawer-text">Sample Page</span>}
             </div>
           </NavLink>
+           <NavLink
+            to="/pruebas-gif"
+            className={({ isActive }) =>
+              `drawer-link ${isActive ? 'active' : ''}`
+            }
+          >
+            <div className="drawer-link-content">
+              <span className="drawer-icon">⭐</span>
+              {isDrawerOpen && <span className="drawer-text">Sample Page</span>}
+            </div>
+          </NavLink>
         </nav>
       </div>
 
@@ -66,6 +78,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/sample" element={<SamplePage />} />
+          <Route path="/pruebas-gif" element={<GifTestPage />} />
         </Routes>
       </main>
     </div>
