@@ -8,14 +8,14 @@ const GifTestPage: React.FC = () => {
       <img src="https://media.giphy.com/media/3o7abB06u9bNzA8lu8/giphy.gif" alt="Gif de prueba" />
       <img src={`${import.meta.env.BASE_URL}/img/img1.png`} alt="Imagen local de ejemplo" />
 
-       <video
+       {/* <video
         src={`${import.meta.env.BASE_URL}/videos/ejemplo.mp4`}
         autoPlay
         loop
         muted
         playsInline
         style={{ width: '1000px', borderRadius: '10px' }}
-        />
+        /> */}
     </div>
   )
 }
